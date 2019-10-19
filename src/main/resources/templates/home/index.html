@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>MidWestTen bank</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light mb40" id="mainNav" th:fragment="navigation" style="background: #FF9800; font-weight: 700;">
+			<div class="container">
+				<a class="navbar-brand" href="/bank/home">MUM MidWestBank: : CRM System</a>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">									
+						<li class="nav-item br"><a class="nav-link"
+							href="/bank/customer/list">Customers</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/bank/account/list">Accounts</a></li> 			
+					</ul>
+				</div>
+			</div>
+	</nav>
+	<div class="container">
+		<!-- Navigation -->
+		<h1>Welcome to MidWestTen bank</h1>
+		<p>
+		A local regional bank, named MidWesTen Bank, has hired you to design and develop a simple banking software solution for them, which they will be using to run part of their banking business; specifically, the system will be used to collect, maintain and manage data about their customers and the bank accounts they operate. They want you to implement a basic web application for this purpose. Especially important to the Bank manager is, the data that provides information about the net liquidity of the bank, on any given day.
+
+ 		</p>
+ 		<p>
+ 		<strong>The bank’s operational data model is given as follows:</strong><br/> 
+A Customer can own many Accounts.<br/>
+An Account belongs to just one Customer.<br/>
+An Account must be of one of many possible AccountTypes.<br/>
+ 
+The Bank currently offers the following 3 AccountTypes:<br/>
+ 
+1.      Checking account<br/>
+2.      Loan account<br/>
+3.      Savings account<br/>
+ 
+Your solution model should consist of the following three data entities:<br/>
+ 
+1.      Customer<br/>
+2.      Account<br/>
+3.      AccountType<br/>
+ 
+Here are the attributes for the entities:<br/>
+ 
+Customer: customerId:long, customerNumber:long, firstName:string, middleName:string, lastName:string, emailAddress:string, contactPhoneNumber:string, dateOfBirth:date<br/>
+ 
+Account: accountId:long, accountNumber:long, balance (Note: the account balance represents the amount of money in dollars and cents held in the account)<br/>
+ 
+AccountType: accountTypeId:int, accountTypeName:string<br/>
+ 
+Here are excerpts of the Bank’s existing data, which you are expected to input into the new banking software system:<br/>
+ 
+AccountTypes:<br/>
+ 
+AT1: { accountTypeId:1, accountTypeName: Checking}<br/>
+AT2: { accountTypeId:2, accountTypeName: Loan}<br/>
+AT3: { accountTypeId:3, accountTypeName: Savings}<br/>
+ 
+Customers:<br/>
+ 
+C1: {customerId:1, customerNumber:10001, firstName:Anna, middleName:””, lastName:Smith, emailAddress:asmith@gmail.net, contactPhoneNumber:(641) 451-0001, dateOfBirth:1978-5-21}<br/>
+ 
+C2: {customerId:2, customerNumber:10002, firstName:Bob, middleName:Earl, lastName:Jones, emailAddress:bob.e.jones@earthlink.org, contactPhoneNumber:(319) 001-0001, dateOfBirth:1964-12-7}<br/>
+ 
+Accounts:<br/>
+ 
+A1: {accountId:1, accountNumber:100001, balance:$190,590.95} – belongs to customer, C1; This account is of the AccountType, Savings.<br/>
+ 
+A2: {accountId:2, accountNumber:100002, balance:$60,000.00} – belongs to customer, C1; This account is of the AccountType, Loan.<br/>
+ 
+A3: {accountId:3, accountNumber:100003, balance:$354,005.26} – belongs to customer, C2; This account is of the AccountType, Checking.<br/>
+ 
+<strong>For this question, you are required to do the following:</strong>
+ <br/>
+1. Draw a simple UML Static (class) model for the software solution.<br/> 
+2. Using the set of tools, technologies and frameworks which you have learnt about in this CS425 course, including Spring Boot
+Spring Web MVC, Spring Data JPA, etc., (or some other Enterprise Web application development platform/tool(s) that you prefer),  
+implement a working web application for MidWesTen Bank. You may use any database of your choice.</p>
+<p> 
+<strong>You are expected to implement only the following features and use-cases:</strong><br/>
+ 
+1.      Display a homepage which presents a set of menu options.<br/>
+2.      Display list of Customers (Allows the bank manager to view a list of all the Customers registered in the system). The bank requires this list to be displayed sorted in ascending order of the Customers’ last names (see sample screen below).<br/>
+3.      Register a new Customer (Allows the bank manager to add a new Customer into the system).<br/>
+4.      Display list of Accounts (Allows the bank manager to view a list of all the Accounts held in the system). The bank requires this list to be displayed sorted in ascending order of the Account Number (see sample screen below).
+5.      Open a new Account (Allows the bank manager to add/open a new Account for an existing customer in the system).<br/>
+6.      Display the bank’s net liquidity position (This means the system presents to the bank manager, a computed value that represents the bank’s net liquidity. This value is computed by taking the sum of the Savings and Checking accounts balances minus the sum of the Loan accounts balances. It represents the total amount of cash expected in the bank’s vault). Your solution should display this data at the bottom of the “List of Accounts” table (see sample screen below).</br>
+7.      Using the JUnit framework, write a Unit Test case for your function/method that computes the bank’s net liquidity. Be sure to execute your Test-case and take a screenshot of your result, as displayed by your IDE.
+ <br/>
+Shown below are sample User Interfaces for the use-cases/tasks.<br/>
+ 
+Note: Your own UI design does NOT necessarily have to look exactly like these samples. But your UIs should contain all the necessary data and data fields, as shown.<br/>
+
+	</div>
+	<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Davaa <span class="float-right">October 2019</span>
+		</div>
+	</footer>	
+</body>
+</html>

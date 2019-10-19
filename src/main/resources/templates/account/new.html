@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Add new supplier</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<!-- Navigation -->
+	<div th:replace="~{/home/index :: navigation}"></div>
+	<div class="container">
+		<h1>New Account Form</h1>
+		<form method="post" action = "/bank/account/new" th:object = "${account}">
+			<fieldset>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="customer">Customer</label>
+						<select name="customer" class="form-control">
+							<option>Select Customer</option>
+							<option th:each="cus:${customers}" th:value="${cus.customerId}" 
+								th:text="${cus.customerNumber} + '-' + ${cus.firstName} +' '+ ${cus.middleName}+ ' '+ ${cus.lastName}"></option>
+						</select>
+						<span th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="accountNumber">Account Number</label>
+						<input name="accountNumber" class="form-control" type="text">
+						<span th:if="${#fields.hasErrors('accountNumber')}" th:errors="*{accountNumber}"
+                                  class="error"></span>							
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="accounttype">Type of Account</label>
+						<select name="accounttype" class="form-control">
+							<option>Type of account</option>
+							<option th:each="obj:${typeofaccounts}" th:value="${obj.accounttypeId}" 
+								th:text="${obj.accountTypeName}"></option>
+						</select>
+						<span th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="balance">Balance</label>
+						<input name="balance" class="form-control" type="text">
+						<span th:if="${#fields.hasErrors('balance')}" th:errors="*{balance}"
+                                  class="error"></span>							
+					</div>
+				</div>
+				<div class="row" style="margin-top:20px;">
+					<div class="col-md-12">
+						<a href="/bank/account/new" class="btn btn-info">Reset</a>
+						<a href="/bank/account/list" class="btn btn-warning">Cancel</a>
+						<button type="submit" class="btn btn-success">Create Account</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Davaa <span class="float-right">October 2019</span>
+		</div>
+	</footer>	
+</body>
+</html>

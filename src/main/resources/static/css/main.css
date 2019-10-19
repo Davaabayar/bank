@@ -1,0 +1,28 @@
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+	font-size: 18px;
+}
+
+.navbar-light .navbar-brand {
+	color: #fff;
+}
+
+.mb40 {
+	margin-bottom: 40px;
+}
+
+.br {
+	border-right: 1px solid #fff;
+}
+
+footer {
+	background: #eee;
+	padding: 15px 0;
+	margin-top: 80px;
+	width: 100%;
+}
+
+.error {
+	color: #ff0000cc;
+	font-style: italic;
+}

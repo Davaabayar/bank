@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register new customer</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<!-- Navigation -->
+	<div th:replace="~{/home/index :: navigation}"></div>
+	<div class="container">
+		<h1>New Customer Registration Form</h1>
+		<form method="post" action = "/bank/customer/new" th:object = "${customer}">
+			<fieldset>
+				<div class="row">
+					<div class="col-md-12">
+						<label for = "customerNumber">Customer Number</label>						
+						<input name = "customerNumber" type="text" class="form-control"  th:value="${customer.customerNumber}">
+						<span th:if="${#fields.hasErrors('customerNumber')}" th:errors="*{customerNumber}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<label for = "firstName">First name</label>
+						<input name = "firstName" type="text" class="form-control" th:value="${customer.firstName}">
+						<span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-4">
+						<label for = "middleName">Middle Name</label>
+						
+						<input name = "middleName" type="text" class="form-control" th:value="${customer.middleName}">
+						<span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-4">					
+                        <label for = "lastName">Last Name</label>						
+						<input name = "lastName" type="text" class="form-control" th:value="${customer.lastName}">
+						<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                                  class="error"></span>
+                    </div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<label for = "emailAddress">Email Address</label>
+						<input name = "emailAddress" type="text" class="form-control" th:value="${customer.emailAddress}">
+						<span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-4">
+						<label for = "contactPhoneNumber">Contact Phone Number</label>
+						
+						<input name = "contactPhoneNumber" type="text" class="form-control" th:value="${customer.contactPhoneNumber}">
+						<span th:if="${#fields.hasErrors('contactPhoneNumber')}" th:errors="*{contactPhoneNumber}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-4">
+						<label for = "dob">Date of birth</label>						
+						<input name = "dob" type="text" class="form-control" placeholder="yyyy-mm-dd"  th:value="${customer.dob}">
+						<span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row" style="margin-top:20px;">
+					<div class="col-md-12">
+						<a href="/bank/customer/new" class="btn btn-info">Reset</a>
+						<a href="/bank/customer/list" class="btn btn-warning">Cancel</a>
+						<button type="submit" class="btn btn-success">Register Customer</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Davaa <span class="float-right">October 2019</span>
+		</div>
+	</footer>	
+</body>
+</html>
